@@ -216,10 +216,7 @@ class LSTMLayer(object):
         # at last
         self.times = 0
 
-        
-
-
-
+       
 
     def init_vector(self):
 
@@ -239,9 +236,58 @@ class LSTMLayer(object):
         bf = np.zeros((self.state_width.1))
 
         return Wx, Wh, bf
+```
+## LSTM 正向传递
 
+我们观察到，大部分的正向传递都是这样的形式
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/8.PNG)
+
+
+所以我们首先定义一个calcul_gate 函数，有了这个函数，可以简便计算
 
 ```
- 
+def calcul_gate(self,Wx,Wh,b,input,function):
+
+    h_before = self.h_list(self.times -1)
+
+    gate = (np.dot(Wx,h_before) + np.dot(Wx, input))+ b
+
+    output = self.sigmoid(gate)
+
+    return output
+```
+
+接着就是主体的正向传播函数
+
+```
+def forward_LSTM(self,x):
+
+    self.times +=1
+
+    # forget gate output
+    f_gate = calcul_gate(self.Wfx,self.Wfh,self.bf,x,self.sigmoid)
+    self.f_list.append(f_gate)
+
+    # input gate output
+    i_gate = calcul_gate(self.Wix,self.Wih,self.bi,x,self.sigmoid)
+    self.i_list.append(i_gate)
+
+    # cell state of input
+    ct_gate = calcul_gate(self.Wcx,self.Wch,self.bc,x,self.tahn)
+    self.ct_list.append(ct_gate)
+
+    # cell state
+    c_gate = f_gate[self.times]*ct_list[self.times-1] + i_gate[self.times]*ct_gate[self.times]
+
+    # output gate
+    o_gate = calcul_gate(self.Wox,self.Woh,self.bo,x,self.sigmoid)
+    self.o_list.append(o_gate)
+
+    # condition gate
+    h_gate = o_list[self.times] * self.tanh(c_gate[self.times])
+    h_list.append(h_gate)
+   
+```
  
  
