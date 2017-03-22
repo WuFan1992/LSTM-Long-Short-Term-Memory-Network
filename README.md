@@ -170,3 +170,78 @@ def tahn_derivative(self,output):
  3. 用于存放一个隐藏层里，遗忘门的列表f_list， 输入门的列表i_list 输出门的列表 o_list  -----三个门的列表
     
     状态量的列表 h_list ,当前输入的单元状态列表ct_list ，单元状态列表 c_list
+ 4. 遗忘门，输入门， 输出门，单元状态的权重矩阵和对应的偏置矩阵
+ 
+```
+class LSTMLayer(object):
+
+    def _init_(self, input_width,state_width,learning_rate):
+
+        self.input_width = input_width
+
+        self.state_width = state_width
+
+        self.learning_rate = learning_rate
+        
+        #forget gate
+        self.f_list = self.init_vector()
+
+        #input gate
+        self.i_list = self.init_vector()
+
+        #output gate
+        self.o_list = self.init_vector()
+
+        #condition
+        self.h_list = self.init_vector()
+
+        # cell state of input
+        self.ct_list = self.init_vevtor()
+
+        #cell state
+        self.c_list = self.init_vector()
+
+        # initialization of forget weight vector
+        Wfx, Wfh, bf = self.init_matrix()
+
+        # initialization of input weight vector
+        Wix , Wih, bi = self.init_matrix()
+
+        # initialization of output weight vector
+        Wox , Woh , bo = self.init_matrix()
+
+        # initialization of cell state weight vector
+        Wcx ,Wch, bc = self.init_matrix()
+
+        # at last
+        self.times = 0
+
+        
+
+
+
+
+    def init_vector(self):
+
+        init_state_vector = []
+
+        init_state_vector.append(np.zeros((self.state_width,1)))
+
+        return init_state_vector
+
+
+    def init_matrix(self):
+
+        Wx = np.randoms.uniform(-1e-4,1e-4,(self.state_width,self.input_width))
+
+        Wh =  np.randoms.uniform(-1e-4,1e-4,(self.state_width,self.state_width))
+
+        bf = np.zeros((self.state_width.1))
+
+        return Wx, Wh, bf
+
+
+```
+ 
+ 
+ 
