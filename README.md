@@ -35,3 +35,12 @@ RNN 误差传递的公式如下：
 为了能控制C xt h ,我们设立了三个门
 
 ![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/6.png)
+
+门的本质就是**全连接层**，也就是说对于一个加权输入，有一个激励输出，门的公式如下：
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/7.PNG)
+
+我们把C 称之为单元状态state ,所以三个门分别控制：
+1. 遗忘门 forget gate 控制前一个state 对当前state 的影响
+2. 输入门 input gate 控制当前的输入xt 对当前state 的影响
+3. 输出门 output gate 控制当前state对当前输出ht 的影响
