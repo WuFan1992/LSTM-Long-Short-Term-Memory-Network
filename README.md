@@ -44,3 +44,13 @@ RNN 误差传递的公式如下：
 1. 遗忘门 forget gate 控制前一个state 对当前state 的影响
 2. 输入门 input gate 控制当前的输入xt 对当前state 的影响
 3. 输出门 output gate 控制当前state对当前输出ht 的影响
+
+**遗忘门**
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/8.PNG)
+
+
+[ht-1,xt]是把输入向量和状态向量连接在一起，这样组合起来的维度就是二者的维度之和。假如输入向量xt 的维度是3000 ，状态向量ht的维度是1500，那么[ht-1,xt]的维度就是4500。根据上一章 RNN的知识，状态向量ht 在同一个隐藏层的维度不变，同样，输入向量xt 在同一个隐藏层，也就是同一个s链上维度不变。
+再来看Wf 的维度。我们回顾一下RNN，回忆如下公式:
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/20.PNG)
