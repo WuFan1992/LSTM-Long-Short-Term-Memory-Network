@@ -92,7 +92,17 @@ ct(波浪号)的表达式如下：
 
 它由输入门，乘以输入单元状态ct（波浪号），加上遗忘门，乘以前一时刻的 单元状态量ct-1
 
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/15.PNG)
+
 其中的圆圈代表的是按元素相乘，举例如下：
 
 ![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/21.PNG)
+
+
+
+**输出门**
+
+输出门的表达式为：
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/16.PNG)
 
