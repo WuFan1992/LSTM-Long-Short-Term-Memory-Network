@@ -119,3 +119,54 @@ ct(波浪号)的表达式如下：
 最终输出的图片如下
 
 ![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/19.png)
+
+以上的公式同时也是前向 传递的公式
+
+下面来看代码部分
+
+思路一：先定义激活函数，因为在LSTM里面涉及到两个激活函数sigmoid 和 tahn 函数，我们先来看这两个函数的定义（用于正向传递）和导数（导数用于反向传递）
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/23.PNG)
+
+
+```
+#define the two activation function
+
+def sigmoid(self,weight_input):
+
+    return 1.0 / (1.0+np.exp(-1*weight_input))
+
+
+def sigmoid_derivative(self,output):
+
+    x = sigmoid(output)
+
+    return x*(1-x)
+
+
+def tanh(self,weight_input):
+
+    a = exp(weight_input)
+
+    b = exp(-1*weight_input)
+
+    return (a-b)/(a+b)
+
+
+def tahn_derivative(self,output):
+
+    c = tahn(output)
+
+    return 1-c^2
+ ```
+ 
+ **重点提示** exp 是numpy 包内的函数，所以一定要使用np.exp
+ 
+ 
+ 思路二：定义LSTRLayer类
+ 
+ 1. 先考虑输入 输入x 我们定义一个input_width　代表x的维度
+ 2. 中间的状态量h 我们定义一个state_width 代表h 的维度
+ 3. 用于存放一个隐藏层里，遗忘门的列表f_list， 输入门的列表i_list 输出门的列表 o_list  -----三个门的列表
+    
+    状态量的列表 h_list ,当前输入的单元状态列表ct_list ，单元状态列表 c_list
