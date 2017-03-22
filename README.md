@@ -106,3 +106,16 @@ ct(波浪号)的表达式如下：
 
 ![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/16.PNG)
 
+示意图如下所示：
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/17.png)
+
+
+而最终LSTM输出的表达式为：
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/18.PNG)
+
+
+最终输出的图片如下
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/19.png)
