@@ -54,3 +54,12 @@ RNN 误差传递的公式如下：
 再来看Wf 的维度。我们回顾一下RNN，回忆如下公式:
 
 ![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/20.PNG)
+
+在上面的公式里，x 是输入向量，s 是前一时刻的状态量，和遗忘门里面的h 是一致的，s 权重矩阵的维度是NXN。所以类比过来，以上面的具体数值为例子，那么Wf 的维度就是4500 x 4500
+从图像中来看，ht 是横向传播，而xt 是纵向传播。回忆RNN 的知识，我们知道误差在反向传播的时候，也存在着纵向传播（隐藏层之间的传播），和横向传播（时刻之间的传播），这两者相互独立，为了能够在后面求偏导数的时候方便，我们把Wf 拆成 Wh 和 Wx。拆开后的公式如下：
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/9.PNG)
+
+遗忘门的图例如下：
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/10.png)
