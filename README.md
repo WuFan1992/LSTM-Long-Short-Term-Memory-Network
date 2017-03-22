@@ -81,3 +81,13 @@ ct（波浪号)是当前输入的单元状态state ,而ct 是当前的时刻的�
 ct(波浪号)的表达式如下：
 
 ![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/13.PNG)
+
+它的图像如下：
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/13.png)
+
+而 ct 的表达式如下
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/14.PNG)
+
+它由输入门，乘以输入单元状态ct（波浪号），加上遗忘门，乘以前一时刻的 单元状态量ct-1
