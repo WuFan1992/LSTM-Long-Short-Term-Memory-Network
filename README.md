@@ -70,6 +70,14 @@ RNN 误差传递的公式如下：
 一样的道理，输入门的表达式如下
 
 ![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/11.PNG)
+
 图例如下
 
 ![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/12.png)
+
+
+ct（波浪号)是当前输入的单元状态state ,而ct 是当前的时刻的单元状态state，前者针对输入，后者针对时刻。
+
+ct(波浪号)的表达式如下：
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/13.PNG)
