@@ -63,3 +63,13 @@ RNN 误差传递的公式如下：
 遗忘门的图例如下：
 
 ![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/10.png)
+
+
+**输入门**
+
+一样的道理，输入门的表达式如下
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/11.PNG)
+图例如下
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/12.png)
