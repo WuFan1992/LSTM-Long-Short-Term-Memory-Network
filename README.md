@@ -399,3 +399,28 @@ def calcul_deltat(self,deltat_h):
 公式如下
 
 ![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/31.PNG)
+
+代码部分，首先也是求从t时刻到t-1时刻， 权重梯度
+
+```
+def calcul_gradient_k(self,t):
+
+    '''
+    we calcul here in order to get the result at time t
+
+
+    '''
+    h_pre = h_list[t-1].transpose()
+    gradient_Woh = np.dot(self.deltat_o_list[t],h_pre)
+    gradient_Wfh = np.dot(self.deltat_f_list[t],h_pre)
+    gradient_Wih = np.dot(self.deltat_i_list[t],h_pre)
+    gradient_Wch = np.dot(self.deltat_ct_list[t],h_pre)
+
+    gradient_bf= self.deltat_f_list[t]
+    gradient_bi = self.deltat_i_list[t]
+    gradient_bc = self.deltat_c_list[t]
+    gradient_bo = self.deltat_o_list[t]
+
+    return gradient_Woh, gradient_Wfh,gradient_Wih,gradient_Wch,gradient_bf,gradient_bi,gradient_bc,gradient_bo
+ 
+ ```
