@@ -24,13 +24,6 @@ def calcul_gradient(self,x):
     self.gradient_Wcx = np.dot(self.deltat_c_list[-1],xt)
     self.gradient_Wix = np.dot(self.deltat_i_list[-1],xt)
     self.gradient_Wox = np.dot(self.deltat_o_list[-1],xt)
-    
-
-
-
-
-
-
 
 
 
