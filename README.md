@@ -369,3 +369,33 @@ def calcul_deltat(self,deltat_h):
 
         calcul_deltat_k(i)
 ```
+**关键点**
+
+上面的代码里，我们在初始化deltat_list 时，长度不是self,times 而是self.times+1 ，这是因为这里是横向沿时间方向传递，但是同时也存在着从上一层传递下来的情况，所以在deltat_list[-1]里存储上一层传递下来（纵向传递）
+接下来在计算权重和偏置更新时，由于我们计算的是横向时间方向的更新，所以需要一个层间纵向传递的误差参数
+
+
+### 权重，偏置的更新
+
+神经网络最终的目的就是权重和偏置更新，基本的思路都是先求出误差的传递，然后把每一层的误差保存进一个list里，在求解权重和偏置的偏导数时，就需要用到每一层的误差。
+注意权重矩阵有两个，一个是Wh ，另一个是Wx
+我们先来看Wh 的偏导数，某一时刻t的偏导数：
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/27.PNG)
+
+最终的梯度是各个时刻的权重梯度加在一起，公式如下
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/28.PNG)
+
+同样对于偏置，也是一样，某一时刻t 的偏置是:
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/29.PNG)
+
+最终的偏置是各个时刻偏置梯度的加在一起
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/30.PNG)
+
+以上是横向的，因为横向有多个时刻，所以需要相加，但是 对于纵向的传递，由于一次只传递一层，所以不存在加和的情况
+公式如下
+
+![](https://github.com/WuFan1992/LSTM-Long-Short-Term-Memory-Network/blob/master/image/31.PNG)
